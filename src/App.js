@@ -66,7 +66,7 @@ function App() {
         <div className=" lg:grid lg:grid-cols-4 sm:flex-wrap md:flex-wrap">
           <div className="p-8 bg-white border-0 lg:col-span-3 lg:rounded-lg md:rounded-lg shadow-lg">
             <div>
-              <label className="block pb-8 font-bold text-2xl text-gray-900 text-start">Form Input Menu di edit dion</label>
+              <label className="block pb-8 font-bold text-2xl text-gray-900 text-start">Form Input Menu</label>
             </div>
             <form onSubmit={onSubmit}>
               <div className="lg:flex flex-1">
@@ -114,7 +114,7 @@ function App() {
                       {
                         result.map((info)=>{
                           return(
-                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={info.id}>
+                            <tr className="bg-white border-b" key={info.id}>
                               <td className="py-4 px-6">
                                 {info.item}
                               </td>
