@@ -60,13 +60,13 @@ function Kasir() {
   const totalfix = totalbayar - (totalbayar*(disc/100));
 
   return (
-    <div className="App h-screen bg-gray-50">
+    <div className="App h-screen bg-gray-100">
       <div className="container mx-auto lg:pt-8 lg:pb-8 md:pt-8 md:pb-8">
        
         <div className=" lg:grid lg:grid-cols-4 sm:flex-wrap md:flex-wrap">
-          <div className="p-8 bg-white border-0 lg:col-span-3 lg:rounded-lg md:rounded-lg shadow-lg">
+          <div className="p-8 bg-white border-0 lg:col-span-3 lg:rounded-lg md:rounded-lg shadow-md">
             <div>
-              <label className="block pb-8 font-bold text-2xl text-gray-900 text-start">Form Input Menu</label>
+              <label className="block pb-8 font-bold text-2xl text-gray-800 text-start">Form Input Menu</label>
             </div>
             <form onSubmit={onSubmit}>
               <div className="lg:flex flex-1">
@@ -142,9 +142,9 @@ function Kasir() {
             </div>
   
           </div> 
-          <div className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 border-0 lg:rounded-lg md:rounded-lg shadow-lg lg:ml-8 lg:flex-1 mt-8 lg:mt-0 pb-6">
+          <div className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 border-0 lg:rounded-lg md:rounded-lg shadow-md lg:ml-8 lg:flex-1 mt-8 lg:mt-0 pb-6">
             <div className="icon-shop pt-8">
-              <FontAwesomeIcon icon={faCartShopping} size="2x"/>
+              <FontAwesomeIcon className='text-yellow-300' icon={faCartShopping} size="2x"/>
             </div>
             <div>
               <label className="block pb-2 font-bold text-xl text-white pt-5">Detail Pembayaran</label>
