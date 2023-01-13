@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import Admin from "./Admin";
+import ItemDetails from "./ItemDetails";
 import Kasir from "./Kasir";
 import Layout from "./Layout";
 
@@ -17,6 +18,10 @@ const Bootstrap = () => {
           path: "/admin",
           element: <Admin />,
         },
+        {
+          path: "/item-details/:id",
+          element: <ItemDetails />
+        }
       ]
     },
   ];

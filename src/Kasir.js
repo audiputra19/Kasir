@@ -4,9 +4,11 @@ import { faCartShopping, faMoneyBillWave, faTrashCan } from '@fortawesome/free-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';  
 import { uid } from 'uid';
+import { useDispatch } from 'react-redux';
+import { saveTransactionData } from './redux/kasir/kasir.action';
 
 function Kasir() {
-
+  const dispatch = useDispatch();
   const [result, setResult] = useState([])
 
   const [data, setData] = useState({
@@ -41,8 +43,6 @@ function Kasir() {
   function onSubmit(e) {
     e.preventDefault();
     setResult([...result,{id,item, qty, harga, totalharga}])
-    
-    //console.log(data)
 
     setData({
       id:uid(),
@@ -58,6 +58,17 @@ function Kasir() {
   );
   
   const totalfix = totalbayar - (totalbayar*(disc/100));
+
+  const bayar = () => {
+    dispatch(saveTransactionData({
+      id: uid(),
+      item: result,
+      amount: totalbayar,
+      disc: disc,
+      totalAmount: totalfix,
+      transactionDate: new Date().toLocaleString("id-ID"),
+    }));
+  }
 
   return (
     <div className="App h-screen bg-gray-100">
@@ -157,7 +168,7 @@ function Kasir() {
               <label className="block pb-2 font-bold text-xl text-white pt-5 text-start">Total : <h1 className="text-end text-3xl">Rp. {totalfix.toLocaleString(navigator.language, { minimumFractionDigits: 0 })}</h1></label>
             </div>
             <div className="px-8 pt-3">
-                <button type="button" className="focus:outline-none text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full">
+                <button onClick={() => bayar()} type="button" className="focus:outline-none text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full">
                   <FontAwesomeIcon icon={faMoneyBillWave}/> Bayar
                 </button>
             </div>
