@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import Admin from "./Admin";
+import DataJurusan from "./DataJurusan";
 import ItemDetails from "./ItemDetails";
 import Kasir from "./Kasir";
 import Layout from "./Layout";
@@ -21,6 +22,10 @@ const Bootstrap = () => {
         {
           path: "/item-details/:id",
           element: <ItemDetails />
+        },
+        {
+          path: "/data-jurusan",
+          element: <DataJurusan />
         }
       ]
     },

@@ -6,6 +6,10 @@ const Admin = () => {
   const { transactions } = useSelector(state => state.kasir);
   const navigation = useNavigate();
 
+  const addToBasket = (transaction) => {
+    console.log(transaction);
+  }
+
   return (
     <div className="mt-8 App h-screen bg-gray-100 ">
       <div className="p-8 bg-white border-0 lg:col-span-3 lg:rounded-lg md:rounded-lg shadow-md">
@@ -30,7 +34,7 @@ const Admin = () => {
                 <td className='py-4 px-10'>{transaction.totalAmount}</td>
                 <td className='py-4 px-10 flex flex-row gap-2 items-center justify-start'>
                   <button>
-                    <FontAwesomeIcon icon={faTrashCan} />
+                    <FontAwesomeIcon icon={faTrashCan} onClick={() => addToBasket(transaction)} />
                   </button>
                   <button onClick={() => navigation(`/item-details/${transaction.id}`)}>
                     <FontAwesomeIcon icon={faEye} />

@@ -9,3 +9,9 @@ export const saveTransactionData = (dataTransaction) => {
     }
   }
 }
+
+export const clearTransactionData = () => {
+  return async (dispatch) => {
+    dispatch({ type: KasirTypes.CLEAR_TRANSACTION })
+  }
+}

@@ -12,7 +12,11 @@ const KasirReducer = (state = INITIAL_STATE, action) => {
         ...state,
         transactions: newTransaction,
       }
-  
+    case KasirTypes.CLEAR_TRANSACTION:
+      return {
+        ...state,
+        transactions: []
+      }
     default:
       return state;
   }
